@@ -6,3 +6,80 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+/* universal selector * that gives each element default values */
+* {
+  margin: 0;
+  padding: 0;
+  /* border margin and paddings no longer apply to total width and height of boxes*/
+  box-sizing: border-box;
+}
+
+/* using inheritance to keep fonts consistent */
+body {
+  /* Google font Lato already included */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  /* applying padding around the body */
+  padding: 30px;
+}
+
+.header {
+  height: 95vh;
+  /* layering background w/2 imgs the linear gradient and the img */
+  background-image: linear-gradient(
+      to right bottom,
+      /* Add opacity by changing to rgba and add a percentage with the fourth number */
+        rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 131, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  /* designates where the image will crop when changing window sizes-- Top will keep the top of the img consistent */
+  background-position: top;
+  /* specified for child element logo-box */
+  position: relative;
+  /* The coordinates to create a polygon shape that will remain visible (moves clockwise starting top left) numbers are in view height*/
+  clip-path: polygon(0 0, 100% 0%, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+  position: absolute;
+  /* start counting top / left is parent element with position set to relative */
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /* shifting the element itself to the point specified by absolute positionS */
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  /* These span elements are set to be inline naturally, so we need to change to block */
+  display: block;
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 15px;
+}
