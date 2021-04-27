@@ -62,11 +62,16 @@ body {
   left: 50%;
   /* shifting the element itself to the point specified by absolute positionS */
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  /* determines if the back part is visible during animation -- prevents shaking in animation */
+  backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -75,11 +80,135 @@ body {
   font-size: 60px;
   font-weight: 700;
   letter-spacing: 35px;
+
+  /* all you need to run an animation is name and duration, but there are lots more attributes */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 3s; */
 }
 
 .heading-primary-sub {
   display: block;
   font-size: 20px;
   font-weight: 700;
-  letter-spacing: 15px;
+  letter-spacing: 17.4px;
+  /* consolidate on 1 line */
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  /* start = 0, complete = 100 */
+  0% {
+    opacity: 0;
+    /* animate in the X direction (horizontal) */
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* start = 0, complete = 100 */
+  0% {
+    opacity: 0;
+    /* animate in the X direction (horizontal) */
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  /* start = 0, complete = 100 */
+  0% {
+    opacity: 0;
+    /* animate in the X direction (horizontal) */
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* psuedoclass of the class is link, visited */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  /* padding top and bottom 15 and left and right 40 */
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  /* can list out all properties that can be animated and seconds it will take */
+  transition: all 0.2s;
+  position: relative;
+}
+
+/* another psuedo class */
+.btn:hover {
+  transform: translateY(-3px);
+  /* x shadow y shadow blur color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* after psuedo element */
+.btn::after {
+  /* have to specify even if empty */
+  content: "";
+  display: inline-block;
+  height: 100%;
+  /* treated like a child of the button */
+  width: 100%;
+  border-radius: 100px;
+  /* reference is the first parent element with position relative */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* position of layers seen */
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  /* scale multiplies size */
+  transform: scaleX(1.4) scaleY(1.6);
+  /* trick to fading out */
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
 }
