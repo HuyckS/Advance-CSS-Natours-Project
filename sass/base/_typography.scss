@@ -1,0 +1,32 @@
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  /* determines if the back part is visible during animation -- prevents shaking in animation */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+  &--main {
+    /* These span elements are set to be inline naturally, so we need to change to block */
+    display: block;
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 3.5rem;
+
+    /* all you need to run an animation is name and duration, but there are lots more attributes */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* consolidate on 1 line */
+    animation: moveInRight 1s ease-out;
+  }
+}

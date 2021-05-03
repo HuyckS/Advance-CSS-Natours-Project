@@ -1,0 +1,67 @@
+.btn {
+  /* psuedoclass of the class is link, visited */
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    /* padding top and bottom 15 and left and right 40 */
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    /* can list out all properties that can be animated and seconds it will take */
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  /* another psuedo class */
+  &:hover {
+    transform: translateY(-0.3rem);
+    /* x shadow y shadow blur color */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      /* scale multiplies size */
+      transform: scaleX(1.4) scaleY(1.6);
+      /* trick to fading out */
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /* after psuedo element */
+  &::after {
+    /* have to specify even if empty */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    /* treated like a child of the button */
+    width: 100%;
+    border-radius: 10rem;
+    /* reference is the first parent element with position relative */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* position of layers seen */
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+}

@@ -1,0 +1,39 @@
+.header {
+  height: 95vh;
+  /* layering background w/2 imgs the linear gradient and the img */
+  background-image: linear-gradient(
+      to right bottom,
+      /* Add opacity by changing to rgba and add a percentage with the fourth number */
+        rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  /* designates where the image will crop when changing window sizes-- Top will keep the top of the img consistent */
+  background-position: top;
+  /* specified for child element logo-box */
+  position: relative;
+  /* The coordinates to create a polygon shape that will remain visible (moves clockwise starting top left) numbers are in view height*/
+  clip-path: polygon(0 0, 100% 0%, 100% 75vh, 0 100%);
+  // nested: "copies" the parent selector
+  &__logo-box {
+    position: absolute;
+    /* start counting top / left is parent element with position set to relative */
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* shifting the element itself to the point specified by absolute positionS */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+

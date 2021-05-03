@@ -143,20 +143,8 @@ footer {
 
 .row {
   max-width: 114rem;
-  background-color: #eee;
+  background-color: red;
   margin: 0 auto; }
-  .row:not(:last-child) {
-    margin-bottom: 8rem; }
-  .row::after {
-    content: "";
-    display: table;
-    clear: both; }
-  .row .col-1-of-2 {
-    width: calc((100% - 6rem) / 2);
-    background-color: orangered;
-    float: left; }
-    .row .col-1-of-2:not(:last-child) {
-      margin-right: 6rem; }
 
 .header {
   height: 95vh;

@@ -1,0 +1,34 @@
+/* universal selector * that gives each element default values */
+/* include before and after selectors for defaults */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* border margin and paddings are inherited*/
+  box-sizing: inherit;
+}
+
+/* global setting for font-size -- use html selector */
+html {
+  /* set to a percentage so that user can change sizes (zoom and zoom out) */
+  /* the default for most browsers is 16px -- divide by 10 * 100 gives us 62.5% */
+  font-size: 62.5%;
+}
+/* using inheritance to keep fonts consistent */
+body {
+  /* Google font Lato already included */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+  /* applying padding around the body */
+  padding: 3rem;
+  /* border margin and paddings no longer apply to total width and height of boxes*/
+  box-sizing: border-box;
+}
+
+footer {
+  color: aqua;
+}
