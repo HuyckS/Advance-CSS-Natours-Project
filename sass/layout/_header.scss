@@ -13,6 +13,7 @@
   background-position: top;
   /* specified for child element logo-box */
   position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 75vh, 0 100%);
   /* The coordinates to create a polygon shape that will remain visible (moves clockwise starting top left) numbers are in view height*/
   clip-path: polygon(0 0, 100% 0%, 100% 75vh, 0 100%);
   // nested: "copies" the parent selector
@@ -36,4 +37,3 @@
     text-align: center;
   }
 }
-
