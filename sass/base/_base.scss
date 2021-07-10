@@ -13,7 +13,19 @@
 html {
   /* set to a percentage so that user can change sizes (zoom and zoom out) */
   /* the default for most browsers is 16px -- divide by 10 * 100 gives us 62.5% */
-  font-size: 62.5%;
+  font-size: 62.5%; // 1 rem = 10px;  10px/16px = 62.5%
+
+  @include respond(tab-land) {
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1 rem = 12px, 12/16 = 75%
+  }
 }
 /* using inheritance to keep fonts consistent */
 body {
@@ -27,4 +39,8 @@ body {
   padding: 3rem;
   /* border margin and paddings no longer apply to total width and height of boxes*/
   box-sizing: border-box;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }
